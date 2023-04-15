@@ -31,7 +31,7 @@ const definitions = {
     partOfSpeech: "adjective",
     description: (
       <>
-        property of a system whose participants maintains{" "}
+        property of a system whose participants maintain{" "}
         <Link to="equality">equal</Link>{" "}
         <Link to="sovereignty">sovereignty</Link> over the defined scope of the
         system.

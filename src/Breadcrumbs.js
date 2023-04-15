@@ -3,8 +3,12 @@ import "./Breadcrumbs.css";
 import { Fragment } from "react";
 
 export function Breadcrumbs({ segments }) {
-  const result = [];
   let path = "";
+  const result = [
+    <p className="split" key={`/`}>
+      /
+    </p>,
+  ];
   for (let i = 0; i < segments.length; i++) {
     const v = segments[i];
     if (i === segments.length - 1) {

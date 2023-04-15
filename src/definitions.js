@@ -4,11 +4,10 @@ const definitions = {
     phonetic: "pɝˈmɪʃənˈɫɛs ˌdɪstɹəbˈjuʃən",
     description: (
       <>
-        <Link to="distribution">distribution</Link> is said to be{" "}
-        <Link to="permissionless">permissionless</Link> when each actor
-        maintains <Link to="sovereignty">sovereignty</Link> over the ability of{" "}
-        <Link to="publishing">publishing</Link> a new medium and delivery of any{" "}
-        <Link to="publishing">published</Link> medium to the consumer
+        <Link to="permissionless">permissionless</Link> system in which each
+        actor maintains <Link to="sovereignty">sovereignty</Link> over the
+        ability of <Link to="publishing">publishing</Link> a new medium and of{" "}
+        <Link to="distribution">distribution</Link> of every medium
       </>
     ),
   },

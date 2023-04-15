@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import definitions from "./definitions";
+import Definition from "./Definition";
+import { useState, useEffect } from "react";
+import { urlToPath } from "./Link";
+import { Breadcrumbs } from "./Breadcrumbs";
+
+const DEFAULT = "permissionless distribution";
 
 function App() {
+  const [currentPath, setCurrentPath] = useState(urlToPath());
+  useEffect(() => {
+    const onLocationChange = () => {
+      setCurrentPath(urlToPath());
+    };
+    window.addEventListener("navigate", onLocationChange);
+    window.addEventListener("popstate", onLocationChange);
+
+    return () => {
+      window.removeEventListener("navigate", onLocationChange);
+      window.removeEventListener("popstate", onLocationChange);
+    };
+  }, []);
+
+  let word = currentPath.length > 0 ? currentPath.at(-1) : DEFAULT;
+  if (!(word in definitions) || currentPath.length === 0) {
+    word = DEFAULT;
+    window.location.pathname = `/${DEFAULT}`;
+  }
+  const definition = definitions[word];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Breadcrumbs segments={currentPath} />
+
+      <Definition
+        word={word}
+        description={definition.description}
+        phonetic={definition.phonetic}
+        partOfSpeech={definition.partOfSpeech}
+      />
+    </>
   );
 }
 

@@ -1,4 +1,6 @@
 import { Link } from "./Link";
+import "./Definition.css";
+
 const definitions = {
   "permissionless distribution": {
     phonetic: "pɝˈmɪʃənˈɫɛs ˌdɪstɹəbˈjuʃən",
